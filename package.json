@@ -50,7 +50,7 @@
     "@types/prop-types": "^15.5.2",
     "@types/react": "~16.0.36",
     "@types/react-dom": "16.0.3",
-    "@types/react-native": "^0.52.8",
+    "@types/react-native": "^0.52.25",
     "@types/react-native-collapsible": "^0.8.0",
     "@types/react-native-drawer-layout": "1.3.3",
     "antd": "3.x",
@@ -102,7 +102,7 @@
     "react-native-mocker": "^0.0.12",
     "react-navigation": "1.0.0-beta.12",
     "react-test-renderer": "^16.4.0",
-    "typescript": "~2.4.0"
+    "typescript": "~2.8.4"
   },
   "scripts": {
     "lint": "npm run tslint && npm run srclint && npm run applint",

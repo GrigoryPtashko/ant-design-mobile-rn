@@ -7,11 +7,12 @@
     "noUnusedLocals": true,
     "allowSyntheticDefaultImports":true,
     "target": "es6",
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "types": [
       "react",
       "react-native"
-    ]
+    ],
+    "skipLibCheck": true
   },
   "exclude": [
     "node_modules",

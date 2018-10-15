@@ -165,10 +165,8 @@ export default class Item extends React.Component<ListItemProps, any> {
     let extraDom;
     if (extra) {
       extraDom = (
-        <View style={[itemStyles.column]}>
-          <Text style={[itemStyles.Extra]} {...numberOfLines}>
-            {extra}
-          </Text>
+        <View style={[itemStyles.Extra]}>
+          {extra}
         </View>
       );
       if (React.isValidElement(extra)) {
@@ -180,7 +178,6 @@ export default class Item extends React.Component<ListItemProps, any> {
               tempExtraDom.push(
                 <Text
                   {...numberOfLines}
-                  style={[itemStyles.Extra]}
                   key={`${index}-children`}
                 >
                   {el}
@@ -190,7 +187,7 @@ export default class Item extends React.Component<ListItemProps, any> {
               tempExtraDom.push(el);
             }
           });
-          extraDom = <View style={[itemStyles.column]}>{tempExtraDom}</View>;
+          extraDom = <View style={[itemStyles.Extra]}>{tempExtraDom}</View>;
         } else {
           extraDom = extra;
         }

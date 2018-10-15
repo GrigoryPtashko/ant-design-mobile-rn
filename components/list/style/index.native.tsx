@@ -63,10 +63,6 @@ export default {
     textAlignVertical: 'center',
   },
   Extra: {
-    color: variables.color_text_caption,
-    fontSize: variables.font_size_heading,
-    textAlign: 'right',
-    textAlignVertical: 'center',
   },
   Brief: {
     minHeight: variables.font_size_icontext,
