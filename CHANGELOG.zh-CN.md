@@ -4,7 +4,7 @@ title: 更新日志
 toc: false
 ---
 
-`antd-mobile-rn` 严格遵循 [Semantic Versioning 2.0.0](http://semver.org/lang/zh-CN/) 语义化版本规范。
+`@ant-design/react-native` 严格遵循 [Semantic Versioning 2.0.0](http://semver.org/lang/zh-CN/) 语义化版本规范。
 
 #### 发布周期
 
@@ -13,6 +13,16 @@ toc: false
 * 主版本号：含有破坏性更新和新特性，不在发布周期内。
 
 ---
+
+### 2.3.0
+
+`2018-10-20`
+
+- `Input`添加`editable`. ([#78](https://github.com/ant-design/ant-design-mobile-rn/pull/78))
+- 修复`Button`组件`activeStyle`属性为对象时不起作用的问题. ([#105](https://github.com/ant-design/ant-design-mobile-rn/pull/105))
+- `Modal`支持多语言. ([#115](https://github.com/ant-design/ant-design-mobile-rn/pull/115))
+- 西班牙语. ([#75](https://github.com/ant-design/ant-design-mobile-rn/pull/75))
+- TypeScript 类型定义完善. ([#83](https://github.com/ant-design/ant-design-mobile-rn/pull/83))
 
 ### 2.2.1
 

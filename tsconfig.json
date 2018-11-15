@@ -1,18 +1,22 @@
 {
   "compilerOptions": {
+    "lib": [
+      "dom",
+      "esnext"
+    ],
     "strictNullChecks": true,
     "moduleResolution": "node",
     "jsx": "preserve",
     "noUnusedParameters": true,
     "noUnusedLocals": true,
-    "allowSyntheticDefaultImports":true,
+    "allowSyntheticDefaultImports": true,
     "target": "es6",
-    "noImplicitAny": false,
+    "noImplicitAny": true,
+    "skipLibCheck": true,
     "types": [
       "react",
       "react-native"
-    ],
-    "skipLibCheck": true
+    ]
   },
   "exclude": [
     "node_modules",

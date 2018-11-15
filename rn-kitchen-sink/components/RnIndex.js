@@ -5,7 +5,7 @@ import {
   View,
   ScrollView,
 } from 'react-native';
-import { List, SearchBar } from 'antd-mobile-rn';
+import { List, SearchBar } from '@ant-design/react-native';
 import { UIVIEWS, UICONTROLS, OTHERS, UIBARS } from '../demoList';
 
 const styles = StyleSheet.create({
@@ -56,7 +56,7 @@ export default class RnIndex extends React.Component {
   renderItem = el => (
     <List.Item
       thumb={el.icon}
-      onClick={() => {
+      onPress={() => {
         this.onPressRow(el);
       }}
       arrow="horizontal"

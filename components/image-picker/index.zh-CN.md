@@ -7,6 +7,9 @@ subtitle: 图片选择器
 
 注意：只是图片选择器，一般用于上传图片前的文件选择操作，但不包括图片上传的功能
 
+
+权限相关的问题可以移步至：https://github.com/ant-design/ant-design-mobile-rn/issues/90 查看
+
 ## API
 
 属性 | 说明 | 类型 | 默认值
@@ -17,8 +20,6 @@ subtitle: 图片选择器
 | onAddImageClick  | 自定义选择图片的方法  | (): void |   |
 | onFail | 取消回调  | (msg: string): void |   |
 | selectable| 是否显示添加按钮  | boolean |  true |
-| multiple| 是否支持多选  | boolean |  false |
-| accept| 图片类型  | string |  image/* |
 
 
 > 注: RN 版本回传 assets-library (性能考虑)，需要使用 native 模块进行上传，可参考 https://github.com/facebook/react-native/issues/201

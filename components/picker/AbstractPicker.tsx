@@ -149,11 +149,11 @@ export default abstract class AbstractPicker extends React.Component<
       data,
       cols,
       onOk,
-      ...restProps,
+      ...restProps
     } = this.props;
 
     // tslint:disable-next-line:variable-name
-    const _locale = getComponentLocale(this.props, this.context, 'Picker', () =>
+    const _locale = getComponentLocale(this.props, (this as any).context, 'Picker', () =>
       require('./locale/zh_CN'),
     );
 
@@ -203,7 +203,8 @@ export default abstract class AbstractPicker extends React.Component<
         {children &&
           typeof children !== 'string' &&
           React.isValidElement(children) &&
-          React.cloneElement<object, object>(children, {
+          // TODO: fix ts error
+          React.cloneElement<object, any>(children as any, {
             extra: this.getSel() || extra || _locale.extra,
           })}
       </RMCPopupCascader>

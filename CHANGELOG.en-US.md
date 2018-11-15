@@ -4,7 +4,7 @@ title: Change Log
 toc: false
 ---
 
-`antd-mobile-rn` strictly follows [Semantic Versioning 2.0.0](http://semver.org/).
+`@ant-design/react-native` strictly follows [Semantic Versioning 2.0.0](http://semver.org/).
 
 #### Release Schedule
 
@@ -13,6 +13,16 @@ toc: false
 * Major version release is not included in this schedule for breadking change and new features.
 
 ---
+
+### 2.3.0
+
+`2018-10-20`
+
+- `Input` add `editable` support. ([#78](https://github.com/ant-design/ant-design-mobile-rn/pull/78))
+- Fix `Button` component's `activeStyle` does not work. ([#105](https://github.com/ant-design/ant-design-mobile-rn/pull/105))
+- `Modal` add locale support. ([#115](https://github.com/ant-design/ant-design-mobile-rn/pull/115))
+- Spanish. ([#75](https://github.com/ant-design/ant-design-mobile-rn/pull/75))
+- TypeScript type definition improvements. ([#83](https://github.com/ant-design/ant-design-mobile-rn/pull/83))
 
 ### 2.2.1
 
