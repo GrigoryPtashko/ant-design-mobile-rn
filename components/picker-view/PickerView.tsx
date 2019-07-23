@@ -1,14 +1,13 @@
-/* tslint:disable:jsx-no-multiline-js */
+
 import React from 'react';
-import RMCCascader from 'rmc-cascader/lib/Cascader';
-import RMCMultiPicker from 'rmc-picker/lib/MultiPicker';
-import RMCPicker from 'rmc-picker/lib/Picker';
+import { StyleProp, ViewStyle } from 'react-native';
+import RMCCascader from '../picker/cascader';
+import MultiPicker from '../picker/MultiPicker';
+import RMCPicker from '../picker/Picker';
 import { PickerData } from '../picker/PropsType';
 
 function getDefaultProps() {
   return {
-    prefixCls: 'am-picker',
-    pickerPrefixCls: 'am-picker-col',
     cols: 3,
     cascade: true,
     value: [],
@@ -16,9 +15,7 @@ function getDefaultProps() {
   };
 }
 
-export interface IPickerView {
-  prefixCls?: string;
-  pickerPrefixCls?: string;
+export interface PickerViewProps {
   cols?: number;
   cascade?: boolean;
   value?: any[];
@@ -26,20 +23,19 @@ export interface IPickerView {
   styles?: any;
   onChange?: (value?: any) => void;
   onScrollChange?: (value?: any) => void;
-  indicatorStyle?: any;
-  itemStyle?: any;
+  indicatorStyle?: StyleProp<ViewStyle>;
+  itemStyle?: StyleProp<ViewStyle>;
 }
 
-export default class PickerView extends React.Component<IPickerView, any> {
+export default class PickerView extends React.Component<PickerViewProps, any> {
   static defaultProps = getDefaultProps();
 
   getCol = () => {
-    const { data, pickerPrefixCls, indicatorStyle, itemStyle } = this.props;
+    const { data, indicatorStyle, itemStyle } = this.props;
     return (data as PickerData[][]).map((col, index) => {
       return (
         <RMCPicker
           key={index}
-          prefixCls={pickerPrefixCls}
           style={{ flex: 1 }}
           indicatorStyle={indicatorStyle}
           itemStyle={itemStyle}
@@ -62,8 +58,6 @@ export default class PickerView extends React.Component<IPickerView, any> {
     if (props.cascade) {
       picker = (
         <RMCCascader
-          prefixCls={props.prefixCls}
-          pickerPrefixCls={props.pickerPrefixCls}
           data={props.data as PickerData[]}
           value={props.value}
           onChange={props.onChange}
@@ -75,15 +69,14 @@ export default class PickerView extends React.Component<IPickerView, any> {
       );
     } else {
       picker = (
-        <RMCMultiPicker
-          prefixCls={props.prefixCls}
+        <MultiPicker
           selectedValue={props.value}
           onValueChange={props.onChange}
           onScrollChange={props.onScrollChange}
           style={{ flexDirection: 'row' }}
         >
           {this.getCol()}
-        </RMCMultiPicker>
+        </MultiPicker>
       );
     }
     return picker;

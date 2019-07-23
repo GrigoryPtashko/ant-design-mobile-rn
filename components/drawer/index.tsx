@@ -1,6 +1,6 @@
-/* tslint:disable:jsx-no-multiline-js */
+
+import DrawerLayout from '@bang88/react-native-drawer-layout';
 import React from 'react';
-import DrawerLayout from 'react-native-drawer-layout';
 import { DrawerProps } from './PropsType';
 
 export interface DrawerNativeProps extends DrawerProps {

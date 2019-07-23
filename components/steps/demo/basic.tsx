@@ -1,7 +1,6 @@
-/* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
 import { ScrollView, Text, View } from 'react-native';
-import { Icon, WingBlank, Steps } from '../../';
+import { Icon, Steps, WingBlank } from '../../';
 const Step = Steps.Step;
 
 export default class BasicTimelineExample extends React.Component<any, any> {
@@ -146,7 +145,81 @@ export default class BasicTimelineExample extends React.Component<any, any> {
                 title="Wait"
                 description="This is description"
                 status="wait"
-                icon={<Icon type="down" size={20} color="white" />}
+                icon={<Icon name="down" size={20} color="white" />}
+              />
+            </Steps>
+          </WingBlank>
+        </View>
+        <View>
+          <WingBlank size="lg">
+            <Steps current={1}>
+              <Step
+                key={0}
+                title="Finished"
+                description="This is description"
+                status="finish"
+                renderIcon={({ starting, waiting, error }) => {
+                  let icon;
+                  if (starting) {
+                    icon = <Icon name="home" />;
+                  } else if (waiting) {
+                    icon = <Icon name="user" />;
+                  } else if (error) {
+                    icon = <Icon name="star" />;
+                  }
+                  return icon;
+                }}
+              />
+              <Step
+                key={1}
+                title="Progress"
+                description="This is description"
+                status="progress"
+                renderIcon={({ starting, waiting, error }) => {
+                  let icon;
+                  if (starting) {
+                    icon = <Icon name="home" />;
+                  } else if (waiting) {
+                    icon = <Icon name="user" />;
+                  } else if (error) {
+                    icon = <Icon name="star" />;
+                  }
+                  return icon;
+                }}
+              />
+              <Step
+                key={2}
+                title="Wait"
+                description="This is description"
+                status="wait"
+                renderIcon={({ starting, waiting, error }) => {
+                  let icon;
+                  if (starting) {
+                    icon = <Icon name="home" />;
+                  } else if (waiting) {
+                    icon = <Icon name="user" />;
+                  } else if (error) {
+                    icon = <Icon name="star" />;
+                  }
+                  return icon;
+                }}
+              />
+              <Step
+                key={3}
+                title="Wait"
+                description="This is description"
+                status="error"
+                renderIcon={({ starting, waiting, error }) => {
+                  let icon;
+                  if (starting) {
+                    icon = <Icon name="home" />;
+                  } else if (waiting) {
+                    icon = <Icon name="user" />;
+                  } else if (error) {
+                    icon = <Icon name="star" />;
+                  }
+                  return icon;
+                }}
               />
             </Steps>
           </WingBlank>

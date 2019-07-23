@@ -23,7 +23,8 @@ subtitle: 文本输入
 | defaultValue    | 设置初始默认值        | String |  -  |
 | placeholder      | placeholder        | String | ''  |
 | editable    | 是否可编辑        | bool |  true  |
-| clear      |  是否带清除功能(仅`editable`为`true`,`disabled`为`false`才生效) | bool | false  |
+| disabled    | 是否禁用        | bool |  true  |
+| clear      |  是否带清除功能(仅`editable`为`true`,`disabled`为`false`才生效)。在 Android 中, 处于编辑状态(focus)时 icon 才会出现, 且此组件被`ScrollView`包裹时, 设置`ScrollView`的`keyboardShouldPersistTaps`属性为`handled`或`always`时, icon才会正确响应点击事件 | bool | false  |
 | maxLength      |  最大长度      | number |  无  |
 | onChange    | change 事件触发的回调函数 | (val: string): void |  -  |
 | onBlur     | blur 事件触发的回调函数 | (val: string): void |   -  |
@@ -35,6 +36,7 @@ subtitle: 文本输入
 | onVirtualKeyboardConfirm | 虚拟键盘点击确认时的回调函数 | (val: string): void |  无  |
 | labelNumber  | 标签的文字个数，可用`2-7`之间的数字 | number | `5` |
 | locale   | 国际化，可覆盖全局`[LocaleProvider](https://mobile.ant.design/components/locale-provider)`的配置, 当`type`为`money`，可以自定义确认按钮的文案。 | Object: { confirmLabel } |  无 |
+| last      |  如果是最后一项，则将移除`borderBottom`（默认拥有`borderBottom`）    | bool | false  |
 
 > 更多 react-native `InputItem` 属性请参考 react-native TextInput (http://facebook.github.io/react-native/docs/textinput.html)
 

@@ -1,5 +1,5 @@
 /* tslint:disable:no-unused-variable */
-// tslint:disable:jsx-no-multiline-js
+
 import React from 'react';
 import { Button, WhiteSpace, WingBlank } from '../../';
 
@@ -28,8 +28,12 @@ export default () => (
 
     <Button loading>loading button</Button>
 
-    <Button activeStyle={false}>无点击反馈</Button><WhiteSpace />
-    <Button activeStyle={{ backgroundColor: 'red' }}>custom feedback style</Button><WhiteSpace />
+    <Button activeStyle={false}>无点击反馈</Button>
+    <WhiteSpace />
+    <Button activeStyle={{ backgroundColor: 'red' }}>
+      custom feedback style
+    </Button>
+    <WhiteSpace />
 
     <WingBlank
       style={{

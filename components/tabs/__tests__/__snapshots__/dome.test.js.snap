@@ -11,9 +11,12 @@ exports[`renders ./components/tabs/demo/basic.tsx correctly 1`] = `
   <View
     onLayout={[Function]}
     style={
-      Object {
-        "flex": 1,
-      }
+      Array [
+        Object {
+          "flex": 1,
+        },
+        Object {},
+      ]
     }
   >
     <View
@@ -27,15 +30,19 @@ exports[`renders ./components/tabs/demo/basic.tsx correctly 1`] = `
       <View
         onLayout={[Function]}
         style={
-          Object {
-            "backgroundColor": "#fff",
-          }
+          Array [
+            Object {},
+            Object {
+              "backgroundColor": "#fff",
+            },
+          ]
         }
       >
         <RCTScrollView
           bounces={false}
           directionalLockEnabled={true}
           horizontal={true}
+          renderToHardwareTextureAndroid={true}
           scrollEnabled={false}
           scrollsToTop={false}
           showsHorizontalScrollIndicator={false}
@@ -45,15 +52,20 @@ exports[`renders ./components/tabs/demo/basic.tsx correctly 1`] = `
             <View
               onLayout={[Function]}
               style={
-                Object {
-                  "backgroundColor": "#fff",
-                  "elevation": 0,
-                  "flex": 1,
-                  "flexDirection": "row",
-                  "justifyContent": "space-around",
-                  "shadowOpacity": 0,
-                  "shadowRadius": 0,
-                }
+                Array [
+                  Object {
+                    "backgroundColor": "#ffffff",
+                    "elevation": 0,
+                    "flex": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "space-around",
+                    "shadowOpacity": 0,
+                    "shadowRadius": 0,
+                  },
+                  Object {
+                    "backgroundColor": "#fff",
+                  },
+                ]
               }
             >
               <View
@@ -86,10 +98,13 @@ exports[`renders ./components/tabs/demo/basic.tsx correctly 1`] = `
                 >
                   <Text
                     style={
-                      Object {
-                        "color": "#000000",
-                        "fontSize": 15,
-                      }
+                      Array [
+                        Object {
+                          "color": undefined,
+                          "fontSize": 15,
+                        },
+                        Object {},
+                      ]
                     }
                   >
                     First Tab
@@ -126,10 +141,13 @@ exports[`renders ./components/tabs/demo/basic.tsx correctly 1`] = `
                 >
                   <Text
                     style={
-                      Object {
-                        "color": "#108ee9",
-                        "fontSize": 15,
-                      }
+                      Array [
+                        Object {
+                          "color": undefined,
+                          "fontSize": 15,
+                        },
+                        Object {},
+                      ]
                     }
                   >
                     Second Tab
@@ -166,10 +184,13 @@ exports[`renders ./components/tabs/demo/basic.tsx correctly 1`] = `
                 >
                   <Text
                     style={
-                      Object {
-                        "color": "#000000",
-                        "fontSize": 15,
-                      }
+                      Array [
+                        Object {
+                          "color": undefined,
+                          "fontSize": 15,
+                        },
+                        Object {},
+                      ]
                     }
                   >
                     Third Tab
@@ -258,22 +279,7 @@ exports[`renders ./components/tabs/demo/basic.tsx correctly 1`] = `
               "width": 750,
             }
           }
-        >
-          <View
-            style={
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#fff",
-                "height": 150,
-                "justifyContent": "center",
-              }
-            }
-          >
-            <Text>
-              Content of Third Tab
-            </Text>
-          </View>
-        </View>
+        />
       </View>
     </RCTScrollView>
   </View>
@@ -287,9 +293,12 @@ exports[`renders ./components/tabs/demo/basic.tsx correctly 1`] = `
     <View
       onLayout={[Function]}
       style={
-        Object {
-          "flex": 1,
-        }
+        Array [
+          Object {
+            "flex": 1,
+          },
+          Object {},
+        ]
       }
     >
       <View
@@ -303,15 +312,19 @@ exports[`renders ./components/tabs/demo/basic.tsx correctly 1`] = `
         <View
           onLayout={[Function]}
           style={
-            Object {
-              "backgroundColor": "#fff",
-            }
+            Array [
+              Object {},
+              Object {
+                "backgroundColor": "#fff",
+              },
+            ]
           }
         >
           <RCTScrollView
             bounces={false}
             directionalLockEnabled={true}
             horizontal={true}
+            renderToHardwareTextureAndroid={true}
             scrollEnabled={true}
             scrollsToTop={false}
             showsHorizontalScrollIndicator={false}
@@ -321,15 +334,20 @@ exports[`renders ./components/tabs/demo/basic.tsx correctly 1`] = `
               <View
                 onLayout={[Function]}
                 style={
-                  Object {
-                    "backgroundColor": "#fff",
-                    "elevation": 0,
-                    "flex": 1,
-                    "flexDirection": "row",
-                    "justifyContent": "space-around",
-                    "shadowOpacity": 0,
-                    "shadowRadius": 0,
-                  }
+                  Array [
+                    Object {
+                      "backgroundColor": "#ffffff",
+                      "elevation": 0,
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "space-around",
+                      "shadowOpacity": 0,
+                      "shadowRadius": 0,
+                    },
+                    Object {
+                      "backgroundColor": "#fff",
+                    },
+                  ]
                 }
               >
                 <View
@@ -362,10 +380,13 @@ exports[`renders ./components/tabs/demo/basic.tsx correctly 1`] = `
                   >
                     <Text
                       style={
-                        Object {
-                          "color": "#000000",
-                          "fontSize": 15,
-                        }
+                        Array [
+                          Object {
+                            "color": undefined,
+                            "fontSize": 15,
+                          },
+                          Object {},
+                        ]
                       }
                     >
                       1st Tab
@@ -402,10 +423,13 @@ exports[`renders ./components/tabs/demo/basic.tsx correctly 1`] = `
                   >
                     <Text
                       style={
-                        Object {
-                          "color": "#108ee9",
-                          "fontSize": 15,
-                        }
+                        Array [
+                          Object {
+                            "color": undefined,
+                            "fontSize": 15,
+                          },
+                          Object {},
+                        ]
                       }
                     >
                       2nd Tab
@@ -442,10 +466,13 @@ exports[`renders ./components/tabs/demo/basic.tsx correctly 1`] = `
                   >
                     <Text
                       style={
-                        Object {
-                          "color": "#000000",
-                          "fontSize": 15,
-                        }
+                        Array [
+                          Object {
+                            "color": undefined,
+                            "fontSize": 15,
+                          },
+                          Object {},
+                        ]
                       }
                     >
                       3rd Tab
@@ -482,10 +509,13 @@ exports[`renders ./components/tabs/demo/basic.tsx correctly 1`] = `
                   >
                     <Text
                       style={
-                        Object {
-                          "color": "#000000",
-                          "fontSize": 15,
-                        }
+                        Array [
+                          Object {
+                            "color": undefined,
+                            "fontSize": 15,
+                          },
+                          Object {},
+                        ]
                       }
                     >
                       4th Tab
@@ -522,10 +552,13 @@ exports[`renders ./components/tabs/demo/basic.tsx correctly 1`] = `
                   >
                     <Text
                       style={
-                        Object {
-                          "color": "#000000",
-                          "fontSize": 15,
-                        }
+                        Array [
+                          Object {
+                            "color": undefined,
+                            "fontSize": 15,
+                          },
+                          Object {},
+                        ]
                       }
                     >
                       5th Tab
@@ -562,10 +595,13 @@ exports[`renders ./components/tabs/demo/basic.tsx correctly 1`] = `
                   >
                     <Text
                       style={
-                        Object {
-                          "color": "#000000",
-                          "fontSize": 15,
-                        }
+                        Array [
+                          Object {
+                            "color": undefined,
+                            "fontSize": 15,
+                          },
+                          Object {},
+                        ]
                       }
                     >
                       6th Tab
@@ -602,10 +638,13 @@ exports[`renders ./components/tabs/demo/basic.tsx correctly 1`] = `
                   >
                     <Text
                       style={
-                        Object {
-                          "color": "#000000",
-                          "fontSize": 15,
-                        }
+                        Array [
+                          Object {
+                            "color": undefined,
+                            "fontSize": 15,
+                          },
+                          Object {},
+                        ]
                       }
                     >
                       7th Tab
@@ -642,10 +681,13 @@ exports[`renders ./components/tabs/demo/basic.tsx correctly 1`] = `
                   >
                     <Text
                       style={
-                        Object {
-                          "color": "#000000",
-                          "fontSize": 15,
-                        }
+                        Array [
+                          Object {
+                            "color": undefined,
+                            "fontSize": 15,
+                          },
+                          Object {},
+                        ]
                       }
                     >
                       8th Tab
@@ -682,10 +724,13 @@ exports[`renders ./components/tabs/demo/basic.tsx correctly 1`] = `
                   >
                     <Text
                       style={
-                        Object {
-                          "color": "#000000",
-                          "fontSize": 15,
-                        }
+                        Array [
+                          Object {
+                            "color": undefined,
+                            "fontSize": 15,
+                          },
+                          Object {},
+                        ]
                       }
                     >
                       9th Tab

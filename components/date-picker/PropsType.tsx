@@ -1,6 +1,6 @@
 import React from 'react';
-
-export interface DatePickerPropsType {
+import AntDatePickerProps from './datepicker/DatePickerProps';
+export interface DatePickerPropsType extends AntDatePickerProps {
   value?: Date;
   mode?: 'datetime' | 'date' | 'year' | 'month' | 'time';
   minDate?: Date;
@@ -8,6 +8,7 @@ export interface DatePickerPropsType {
   onChange?: (value: Date) => void;
   onValueChange?: (vals: any, index: number) => void;
   visible?: boolean;
+  use12Hours?: boolean;
   onDismiss?: () => void;
   locale?: {
     okText: string;

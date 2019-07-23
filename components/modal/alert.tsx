@@ -1,24 +1,23 @@
 import React from 'react';
-import topView from 'react-native-top-view';
+import Portal from '../portal';
 import AlertContainer from './AlertContainer';
+import { Action } from './PropsType';
 
 export default function a(
   title: React.ReactNode,
   content: React.ReactNode,
-  actions = [{ text: '确定' }],
+  actions: Action[] = [{ text: '确定' }],
 ) {
-  const onAnimationEnd = (visible: boolean) => {
-    if (!visible) {
-      topView.remove();
-    }
-  };
-
-  topView.set(
+  const key = Portal.add(
     <AlertContainer
       title={title}
       content={content}
       actions={actions}
-      onAnimationEnd={onAnimationEnd}
+      onAnimationEnd={(visible: boolean) => {
+        if (!visible) {
+          Portal.remove(key);
+        }
+      }}
     />,
   );
 }

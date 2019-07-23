@@ -1,7 +1,7 @@
 /* tslint:disable:no-console */
 import React from 'react';
-import { Text, View, ScrollView } from 'react-native';
-import { Button, Modal, WhiteSpace, WingBlank } from '../../';
+import { ScrollView, Text, View } from 'react-native';
+import { Button, Modal, Toast, WhiteSpace, WingBlank } from '../../';
 
 export default class BasicModalExample extends React.Component<any, any> {
   constructor(props: any) {
@@ -17,33 +17,33 @@ export default class BasicModalExample extends React.Component<any, any> {
     this.setState({
       visible: false,
     });
-  }
+  };
 
   onClose1 = () => {
     this.setState({
       visible1: false,
     });
-  }
+  };
 
   onClose2 = () => {
     this.setState({
       visible2: false,
     });
-  }
+  };
 
   onButtonClick = () => {
     Modal.alert('Title', 'alert content', [
       { text: 'Cancel', onPress: () => console.log('cancel'), style: 'cancel' },
       { text: 'OK', onPress: () => console.log('ok') },
     ]);
-  }
+  };
 
   onButtonClick2 = () => {
     Modal.operation([
       { text: '标为未读', onPress: () => console.log('标为未读被点击了') },
       { text: '置顶聊天', onPress: () => console.log('置顶聊天被点击了') },
     ]);
-  }
+  };
 
   onButtonClick3 = () => {
     Modal.prompt(
@@ -52,10 +52,10 @@ export default class BasicModalExample extends React.Component<any, any> {
       (login: any, password: any) =>
         console.log(`login: ${login}, password: ${password}`),
       'login-password',
-      null,
+      '',
       ['Please input name', 'Please input password'],
     );
-  }
+  };
 
   onButtonClick4 = () => {
     Modal.prompt(
@@ -65,7 +65,7 @@ export default class BasicModalExample extends React.Component<any, any> {
       'secure-text',
       'defaultValue',
     );
-  }
+  };
 
   onButtonClick5 = () => {
     Modal.prompt(
@@ -73,10 +73,10 @@ export default class BasicModalExample extends React.Component<any, any> {
       'name message',
       (password: any) => console.log(`password: ${password}`),
       'default',
-      null,
+      '',
       ['please input name'],
     );
-  }
+  };
   render() {
     const footerButtons = [
       { text: 'Cancel', onPress: () => console.log('cancel') },
@@ -138,6 +138,12 @@ export default class BasicModalExample extends React.Component<any, any> {
             <Text style={{ textAlign: 'center' }}>Content...</Text>
             <Text style={{ textAlign: 'center' }}>Content...</Text>
           </View>
+          <Button
+            type="primary"
+            onPress={() => Toast.info('Hello Toast in Modal now works')}
+          >
+            Hello Toast in Modal now works
+          </Button>
           <Button type="primary" onPress={this.onClose1}>
             close modal
           </Button>

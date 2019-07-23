@@ -58,6 +58,12 @@ module.exports = {
       module: require('../components/list/demo/basic'),
     },
     {
+      title: 'ListView',
+      description: '列表',
+      icon: 'https://os.alipayobjects.com/rmsportal/tiapjpdKPQGHhnC.png',
+      module: require('../components/list-view/demo/basic'),
+    },
+    {
       title: 'Modal',
       description: '对话框',
       icon: 'https://os.alipayobjects.com/rmsportal/HzRRcuwtqUCCOBg.png',
@@ -68,6 +74,12 @@ module.exports = {
       description: '气泡',
       icon: 'https://os.alipayobjects.com/rmsportal/iIOLFHTKUCxBgUV.png',
       module: require('../components/popover/demo/basic'),
+    },
+    {
+      title: 'Portal',
+      description: 'portal',
+      icon: 'https://os.alipayobjects.com/rmsportal/iIOLFHTKUCxBgUV.png',
+      module: require('../components/portal/demo/basic'),
     },
     {
       title: 'Result', // 必须

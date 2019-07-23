@@ -1,17 +1,18 @@
 import React from 'react';
-import topView from 'react-native-top-view';
+import Portal from '../portal';
 import OperationContainer from './OperationContainer';
 
 export default function a(...args: any[]) {
   const actions = args[0] || [{ text: '确定' }];
 
-  const onAnimationEnd = (visible: boolean) => {
-    if (!visible) {
-      topView.remove();
-    }
-  };
-
-  topView.set(
-    <OperationContainer actions={actions} onAnimationEnd={onAnimationEnd} />,
+  const key = Portal.add(
+    <OperationContainer
+      actions={actions}
+      onAnimationEnd={(visible: boolean) => {
+        if (!visible) {
+          Portal.remove(key);
+        }
+      }}
+    />,
   );
 }

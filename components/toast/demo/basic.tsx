@@ -1,10 +1,13 @@
 /* tslint:disable:no-console */
 import React from 'react';
 import { DeviceEventEmitter } from 'react-native';
-import { Button, Toast, WhiteSpace, WingBlank } from '../../';
+import { Button, Portal, Toast, WhiteSpace, WingBlank } from '../../';
 
 function showToast() {
-  Toast.info('This is a toast tips !!!');
+  // multiple toast
+  Toast.info('This is a toast tips 1 !!!', 4);
+  Toast.info('This is a toast tips 2 !!!', 3);
+  Toast.info('This is a toast tips 3 !!!', 1);
 }
 
 function successToast() {
@@ -31,11 +34,6 @@ function loadingToast() {
 
 export default class ToastExample extends React.Component<any, any> {
   timer: any;
-  componentDidMount() {
-    DeviceEventEmitter.addListener('navigatorBack', () => {
-      Toast.hide();
-    });
-  }
 
   componentWillUnmount() {
     (DeviceEventEmitter as any).removeAllListeners('navigatorBack');
@@ -46,11 +44,11 @@ export default class ToastExample extends React.Component<any, any> {
   }
 
   alwaysShowToast = () => {
-    Toast.info('A toast width duration = 0 !!!', 0);
+    const key = Toast.info('A toast width duration = 0 !!!', 0);
     this.timer = setTimeout(() => {
-      Toast.hide();
+      Portal.remove(key);
     }, 5000);
-  }
+  };
 
   render() {
     return (

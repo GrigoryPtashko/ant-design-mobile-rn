@@ -25,10 +25,12 @@ Properties | Descrition | Type | Default
 | onValueChange | fire when picker col change | (vals: any, index: number) => void | - |
 | format  | format the selected value | `(value: Date) => date string` / `format string`(corresponding mode under the format are: `YYYY-MM-DD` or `HH:mm` or `YYYY-MM-DD HH:mm`) | - |
 | title  | title | string/React.ReactElement |  -  |
+| itemStyle  | itemStyle |   StyleProp<ViewStyle>;
+ |  -  |
 | extra   | the display text | String  |  `请选择`  |
 | onOk  | handler called when click ok | (val): void  |  - |
 | onDismiss  | handler called when click cancel | (): void  |  -  |
 
 Note: The date strings have different implementations in different browsers. For example, `new Date ('2017-1-1')` is an Invalid Date on Safari but is parsed properly on Chrome.
 
-Note: We suggest DatePicker's children to be `List.Item`, if not, you need to be a custom component which accept and handle `onClick` / `extra` / `chidlren` props, see [demo](https://mobile.ant.design/components/date-picker)
+Note: We suggest DatePicker's children to be `List.Item`, if not, you need to be a custom component which accept and handle `onClick` / `extra` / `chidlren` props, see [demo](/components/date-picker)

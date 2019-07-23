@@ -1,34 +1,23 @@
-// tslint:disable:jsx-no-multiline-js
-
 import React from 'react';
-import {
-  ActivityIndicator,
-  Animated,
-  Image,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
-import ToastContainerStyle, { IToastStyle } from './style/index';
+import { ActivityIndicator, Animated, Text, View } from 'react-native';
+import Icon, { IconNames } from '../icon';
+import { WithTheme, WithThemeStyles } from '../style';
+import ToastStyles, { ToastStyle } from './style/index';
 
-export interface ToastProps {
+export interface ToastProps extends WithThemeStyles<ToastStyle> {
   content: string;
   duration?: number;
   onClose?: () => void;
   mask?: boolean;
   type?: string;
   onAnimationEnd?: () => void;
-  styles?: IToastStyle;
 }
-
-const ToastContainerStyles = StyleSheet.create<any>(ToastContainerStyle);
 
 export default class ToastContainer extends React.Component<ToastProps, any> {
   static defaultProps = {
     duration: 3,
     mask: true,
     onClose() {},
-    styles: ToastContainerStyles,
   };
 
   anim: Animated.CompositeAnimation | null;
@@ -48,11 +37,21 @@ export default class ToastContainer extends React.Component<ToastProps, any> {
       this.anim = null;
     }
     const animArr = [
-      timing(this.state.fadeAnim, { toValue: 1, duration: 200 }),
+      timing(this.state.fadeAnim, {
+        toValue: 1,
+        duration: 200,
+        useNativeDriver: true,
+      }),
       Animated.delay(duration * 1000),
     ];
     if (duration > 0) {
-      animArr.push(timing(this.state.fadeAnim, { toValue: 0, duration: 200 }));
+      animArr.push(
+        timing(this.state.fadeAnim, {
+          toValue: 0,
+          duration: 200,
+          useNativeDriver: true,
+        }),
+      );
     }
     this.anim = Animated.sequence(animArr);
     this.anim.start(() => {
@@ -77,50 +76,62 @@ export default class ToastContainer extends React.Component<ToastProps, any> {
 
   render() {
     const { type = '', content, mask } = this.props;
-    const styles = this.props.styles!;
-    const iconType: {
-      [key: string]: any;
-    } = {
-      success: require('./images/success.png'),
-      fail: require('./images/fail.png'),
-      offline: require('./images/offline.png'),
-    };
-
-    let iconDom: React.ReactElement<any> | null = null;
-    if (type === 'loading') {
-      iconDom = (
-        <ActivityIndicator
-          animating
-          style={[styles.centering]}
-          color="white"
-          size="large"
-        />
-      );
-    } else if (type === 'info') {
-      iconDom = null;
-    } else {
-      iconDom = <Image source={iconType[type]} style={styles.image} />;
-    }
-
     return (
-      <View
-        style={[styles.container]}
-        pointerEvents={mask ? undefined : 'box-none'}
-      >
-        <View style={[styles.innerContainer]}>
-          <Animated.View style={{ opacity: this.state.fadeAnim }}>
+      <WithTheme styles={this.props.styles} themeStyles={ToastStyles}>
+        {styles => {
+          const iconType: {
+            [key: string]: IconNames;
+          } = {
+            success: 'check-circle',
+            fail: 'close-circle',
+            offline: 'frown',
+          };
+
+          let iconDom: React.ReactElement<any> | null = null;
+          if (type === 'loading') {
+            iconDom = (
+              <ActivityIndicator
+                animating
+                style={[styles.centering]}
+                color="white"
+                size="large"
+              />
+            );
+          } else if (type === 'info') {
+            iconDom = null;
+          } else {
+            iconDom = (
+              <Icon
+                name={iconType[type]}
+                style={styles.image}
+                color="white"
+                size={36}
+              />
+            );
+          }
+
+          return (
             <View
-              style={[
-                styles.innerWrap,
-                iconDom ? styles.iconToast : styles.textToast,
-              ]}
+              style={[styles.container]}
+              pointerEvents={mask ? undefined : 'box-none'}
             >
-              {iconDom}
-              <Text style={styles.content}>{content}</Text>
+              <View style={[styles.innerContainer]}>
+                <Animated.View style={{ opacity: this.state.fadeAnim }}>
+                  <View
+                    style={[
+                      styles.innerWrap,
+                      iconDom ? styles.iconToast : styles.textToast,
+                    ]}
+                  >
+                    {iconDom}
+                    <Text style={styles.content}>{content}</Text>
+                  </View>
+                </Animated.View>
+              </View>
             </View>
-          </Animated.View>
-        </View>
-      </View>
+          );
+        }}
+      </WithTheme>
     );
   }
 }

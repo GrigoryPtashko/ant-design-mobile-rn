@@ -1,32 +1,24 @@
-/* tslint:disable:jsx-no-multiline-js */
 import React from 'react';
-import {
-  Image,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-  View,
-} from 'react-native';
-import ImageRoll from './ImageRoll';
+import { Image, Text, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
+import { WithTheme, WithThemeStyles } from '../style';
+import { CameraRollPickerProps } from './CameraRollPicker';
+import ImageRoll, { ImageRollTexts } from './ImageRoll';
 import { ImagePickerPropTypes } from './PropsType';
-import imagePickerStyle, { IImagePickerStyle } from './style/index';
+import ImagePickerStyles, { ImagePickerStyle } from './style/index';
 
-export interface ImagePickerNativeProps extends ImagePickerPropTypes {
-  styles?: IImagePickerStyle;
+export interface ImagePickerProps
+  extends ImagePickerPropTypes,
+    WithThemeStyles<ImagePickerStyle>,
+    ImageRollTexts {
+  cameraPickerProps?: CameraRollPickerProps;
 }
 
-const imagePickerStyles = StyleSheet.create<any>(imagePickerStyle);
-
 export default class ImagePicker extends React.Component<
-  ImagePickerNativeProps,
+  ImagePickerProps,
   any
 > {
   static defaultProps = {
-    styles: imagePickerStyles,
-    // tslint:disable-next-line:no-empty
     onChange() {},
-    // tslint:disable-next-line:no-empty
     onFail() {},
     files: [],
     selectable: true,
@@ -35,26 +27,24 @@ export default class ImagePicker extends React.Component<
   plusText: any;
   plusWrap: any;
 
-  constructor(props: ImagePickerNativeProps) {
+  constructor(props: ImagePickerProps) {
     super(props);
     this.state = {
       visible: false,
     };
   }
 
-  onPressIn = () => {
-    const styles = this.props.styles!;
+  onPressIn = (styles: ReturnType<typeof ImagePickerStyles>) => () => {
     this.plusWrap.setNativeProps({
       style: [styles.item, styles.size, styles.plusWrapHighlight],
     });
-  }
+  };
 
-  onPressOut = () => {
-    const styles = this.props.styles!;
+  onPressOut = (styles: ReturnType<typeof ImagePickerStyles>) => () => {
     this.plusWrap.setNativeProps({
       style: [styles.item, styles.size, styles.plusWrapNormal],
     });
-  }
+  };
 
   showPicker = () => {
     if (this.props.onAddImageClick) {
@@ -64,7 +54,7 @@ export default class ImagePicker extends React.Component<
     this.setState({
       visible: true,
     });
-  }
+  };
 
   addImage(imageObj: any) {
     if (!imageObj.url) {
@@ -98,7 +88,7 @@ export default class ImagePicker extends React.Component<
     if (this.props.onFail) {
       this.props.onFail('cancel image selection');
     }
-  }
+  };
 
   onImageClick(index: number) {
     if (this.props.onImageClick) {
@@ -107,59 +97,67 @@ export default class ImagePicker extends React.Component<
   }
 
   render() {
-    const { files = [], selectable } = this.props;
-    const styles = this.props.styles!;
-    const filesView = files.map((item: any, index) => (
-      <View key={index} style={[styles.item, styles.size]}>
-        <TouchableOpacity
-          onPress={() => this.onImageClick(index)}
-          activeOpacity={0.6}
-        >
-          <Image
-            source={{ uri: item.url }}
-            style={[styles.size, styles.image]}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => this.removeImage(index)}
-          style={styles.closeWrap}
-          activeOpacity={0.6}
-        >
-          <Text style={styles.closeText}>×</Text>
-        </TouchableOpacity>
-      </View>
-    ));
-
-    const imageRollEl = (
-      <ImageRoll
-        onCancel={this.hideImageRoll}
-        onSelected={imgObj => this.addImage(imgObj)}
-      />
-    );
+    const { files = [], selectable, cameraPickerProps } = this.props;
     return (
-      <View style={styles.container}>
-        {filesView}
-        {selectable && (
-          <TouchableWithoutFeedback
-            onPress={this.showPicker}
-            onPressIn={this.onPressIn}
-            onPressOut={this.onPressOut}
-          >
-            <View
-              ref={(conponent: any) => (this.plusWrap = conponent)}
-              style={[
-                styles.item,
-                styles.size,
-                styles.plusWrap,
-                styles.plusWrapNormal,
-              ]}
-            >
-              <Text style={[styles.plusText]}>+</Text>
+      <WithTheme styles={this.props.styles} themeStyles={ImagePickerStyles}>
+        {styles => {
+          const filesView = files.map((item: any, index) => (
+            <View key={index} style={[styles.item, styles.size]}>
+              <TouchableOpacity
+                onPress={() => this.onImageClick(index)}
+                activeOpacity={0.6}
+              >
+                <Image
+                  source={{ uri: item.url }}
+                  style={[styles.size, styles.image]}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => this.removeImage(index)}
+                style={styles.closeWrap}
+                activeOpacity={0.6}
+              >
+                <Text style={styles.closeText}>×</Text>
+              </TouchableOpacity>
             </View>
-          </TouchableWithoutFeedback>
-        )}
-        {this.state.visible ? imageRollEl : null}
-      </View>
+          ));
+
+          const imageRollEl = (
+            <ImageRoll
+              onCancel={this.hideImageRoll}
+              onSelected={imgObj => this.addImage(imgObj)}
+              title={this.props.title}
+              cancelText={this.props.cancelText}
+              cameraPickerProps={cameraPickerProps}
+            />
+          );
+          return (
+            <View style={styles.container}>
+              {filesView}
+              {selectable && (
+                <TouchableWithoutFeedback
+                  onPress={this.showPicker}
+                  onPressIn={this.onPressIn(styles)}
+                  onPressOut={this.onPressOut(styles)}
+                >
+                  <View
+                    ref={(conponent: any) => (this.plusWrap = conponent)}
+                    style={[
+                      styles.item,
+                      styles.size,
+                      styles.plusWrap,
+                      styles.plusWrapNormal,
+                    ]}
+                  >
+                    <Text style={[styles.plusText]}>+</Text>
+                  </View>
+                </TouchableWithoutFeedback>
+              )}
+              {this.state.visible ? imageRollEl : null}
+            </View>
+          );
+        }}
+      </WithTheme>
     );
   }
 }

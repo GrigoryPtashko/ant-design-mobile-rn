@@ -1,28 +1,25 @@
 import React from 'react';
-import topView from 'react-native-top-view';
+import Portal from '../portal';
 import ToastContainer from './ToastContainer';
 
 function notice(
   content: string,
   type: string,
-  duration = 3,
+  duration = 2,
   onClose: (() => void) | undefined,
   mask = true,
 ) {
-  topView.remove();
-  function animationEnd() {
-    topView.remove();
-  }
-  topView.set(
+  const key = Portal.add(
     <ToastContainer
       content={content}
       duration={duration}
       onClose={onClose}
       type={type}
       mask={mask}
-      onAnimationEnd={animationEnd}
+      onAnimationEnd={() => Portal.remove(key)}
     />,
   );
+  return key;
 }
 
 export default {
@@ -70,8 +67,5 @@ export default {
     mask?: boolean,
   ) {
     return notice(content, 'loading', duration, onClose, mask);
-  },
-  hide() {
-    topView.remove();
   },
 };
