@@ -14,6 +14,31 @@ toc: false
 
 ---
 
+### 3.2.0
+
+`2019-09-29`
+
+- Using `@react-native-community/viewpager` [#615](https://github.com/ant-design/ant-design-mobile-rn/pull/615) by [xinbowang](https://github.com/xinbowang)
+
+### 3.1.15
+
+`2019-08-27`
+
+- Add `onLongPress` to `ListItem` [#619](https://github.com/ant-design/ant-design-mobile-rn/pull/619) by [Zixuan](https://github.com/nodece)
+
+### 3.1.14
+
+`2019-08-21`
+
+- Add `onBackHandler` to `modal` related components [#611](https://github.com/ant-design/ant-design-mobile-rn/pull/611) by [Tzng](https://github.com/Tzng)
+- Fixes `search-bar` type definition
+
+### 3.1.12
+
+`2019-08-02`
+
+- `datepicker` Add a `defaultDate` property [#593](https://github.com/ant-design/ant-design-mobile-rn/pull/593)
+
 ### 3.1.7
 
 `2019-04-30`

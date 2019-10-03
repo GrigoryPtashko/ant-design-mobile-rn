@@ -14,6 +14,32 @@ toc: false
 
 ---
 
+### 3.2.0
+
+`2019-09-29`
+
+- 使用 `@react-native-community/viewpager` [#615](https://github.com/ant-design/ant-design-mobile-rn/pull/615) by [xinbowang](https://github.com/xinbowang)
+
+
+### 3.1.15
+
+`2019-08-27`
+
+- `ListItem` 组件增加一个`onLongPress`属性 [#619](https://github.com/ant-design/ant-design-mobile-rn/pull/619) by [Zixuan](https://github.com/nodece)
+
+### 3.1.14
+
+`2019-08-21`
+
+- `modal` 相关的组件增加一个`onBackHandler`属性 [#611](https://github.com/ant-design/ant-design-mobile-rn/pull/611) by [Tzng](https://github.com/Tzng)
+- 完善 `search-bar` 类型定义
+
+### 3.1.12
+
+`2019-08-02`
+
+- `datepicker`组件增加一个`defaultDate`属性 [#593](https://github.com/ant-design/ant-design-mobile-rn/pull/593)
+
 ### 3.1.7
 
 `2019-04-30`
